@@ -1,0 +1,4 @@
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.getElementById('year').textContent=new Date().getFullYear();
+if(!reduced && 'IntersectionObserver' in window){document.body.classList.add('js-motion');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));}
+if(!reduced && matchMedia('(hover: hover)').matches){document.querySelectorAll('.magnetic').forEach(button=>{button.addEventListener('pointermove',event=>{const r=button.getBoundingClientRect();button.style.transform=`translate(${(event.clientX-r.left-r.width/2)*.1}px, ${(event.clientY-r.top-r.height/2)*.15}px)`});button.addEventListener('pointerleave',()=>button.style.transform='');});}
