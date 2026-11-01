@@ -1,12 +1,2 @@
-node_modules
-
-# local logs and scratch checks
-*.log
-preview*.log
-homepage-style-check.json
-tool-logo-check.png
-creative-social-preview.png
-creative-social-design-qa.md
-
-# build output (hosts such as Vercel rebuild it from source)
+﻿node_modules
 dist
