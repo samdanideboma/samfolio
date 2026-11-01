@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="ELEVN, a streetwear store prototype by Sam. Browse every page of the design."><title>ELEVN Prototype — Sam Portfolio</title><link rel="stylesheet" href="/styles/ecommerce.css"><link rel="stylesheet" href="/styles/elevn.css"></head>
+<body><div class="sheet viewer">
+<header class="bar"><a class="logo" href="/" aria-label="Sam Portfolio home">☺</a><nav aria-label="Prototype navigation"><a href="/websites.html">← WEBSITE DESIGN</a><a class="on" href="#">★ ELEVN PROTOTYPE</a></nav><a class="bar-cta" href="/ecommerce.html#contact">♥ CONTACT</a></header>
+
+<section class="v-video" aria-label="ELEVN shopping demo"><div class="vv-head"><span class="label-box">watch the demo</span><h2>ELEVN, <em>shopping demo</em></h2><p>A walkthrough of the streetwear store, from the home page through to checkout.</p></div><figure class="vv-frame"><i class="tape"></i><video controls playsinline preload="metadata" src="/assets/ecommerce/video/elevn-shopping-demo.mp4"></video><figcaption>ELEVN · designed in Figma</figcaption></figure></section>
+
+<div class="v-layout">
+<aside class="v-side" aria-label="All pages"><p class="hand-note">pick a page!</p><div id="list"></div></aside>
+<main class="v-main"><div class="v-head"><div><small id="group">STOREFRONT</small><h1 id="title">Home</h1></div><div class="v-ctrl"><button id="prev" type="button" aria-label="Previous page">← PREV</button><span id="count">1 / 37</span><button id="next" type="button" aria-label="Next page">NEXT →</button></div></div>
+<div class="v-frame"><img id="shot" alt="" width="1000"></div>
+<p class="v-hint">Use the ← → arrow keys, or pick any page from the list.</p></main>
+</div>
+<footer><a href="/ecommerce.html">← BACK TO E-COMMERCE</a><span>ELEVN · DESIGNED IN FIGMA</span><a href="#top">BACK TO TOP ↑</a></footer>
+</div>
+<script>
+(function(){
+var G=[
+["Storefront",[["01-home","Home"],["02-shop","Shop"],["03-product-shutter","Product page"],["04-cart","Cart"],["05-checkout","Checkout"],["06-confirmation","Order confirmation"],["07-wishlist","Wishlist"],["c1-hoodies-knitwear","Hoodies & knitwear"],["c2-caps-shorts-jorts","Caps, shorts & jorts"],["c3-baggy-straight","Baggy & straight"]]],
+["Account & orders",[["08-account","Account"],["17-track-order","Track order"],["18-tracking-status","Tracking status"],["19-return-request","Return request"],["20-return-confirmation","Return confirmation"],["21-preferences","Preferences"],["22-notifications","Notifications"]]],
+["About & help",[["09-about","About"],["10-contact","Contact"],["11-message-received","Message received"],["12-faq","FAQ"],["13-shipping-policy","Shipping policy"],["14-returns-policy","Returns policy"],["15-privacy","Privacy"],["16-terms","Terms"]]],
+["Studio (admin)",[["23-studio-overview","Studio overview"],["24-products-admin","Products"],["25-product-editor","Product editor"],["26-inventory","Inventory"],["27-orders","Orders"],["28-order-details","Order details"],["29-returns-desk","Returns desk"],["30-shipping-payment-tax","Shipping, payment & tax"],["31-customers-support","Customers & support"],["32-marketing","Marketing"],["33-analytics","Analytics"],["34-store-health","Store health"]]]
+];
+var P=[],list=document.getElementById("list");
+G.forEach(function(g){var h=document.createElement("h2");h.textContent=g[0];list.appendChild(h);var ul=document.createElement("ul");
+g[1].forEach(function(p){var i=P.length;P.push({id:p[0],name:p[1],group:g[0]});var li=document.createElement("li"),a=document.createElement("a");a.href="#"+p[0];a.textContent=p[1];a.dataset.i=i;li.appendChild(a);ul.appendChild(li)});list.appendChild(ul)});
+var shot=document.getElementById("shot"),links=list.querySelectorAll("a"),cur=0;
+function idx(){var h=location.hash.slice(1);for(var i=0;i<P.length;i++)if(P[i].id===h)return i;return 0}
+function show(){cur=idx();var p=P[cur];
+shot.src="/assets/ecommerce/elevn/"+p.id+".jpg";shot.alt="ELEVN "+p.name+" page prototype";
+document.getElementById("title").textContent=p.name;document.getElementById("group").textContent=p.group.toUpperCase();
+document.getElementById("count").textContent=(cur+1)+" / "+P.length;document.title=p.name+" — ELEVN Prototype";
+links.forEach(function(a){var on=+a.dataset.i===cur;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+document.querySelector(".v-frame").scrollTop=0;window.scrollTo(0,0)}
+function go(d){var n=(cur+d+P.length)%P.length;location.hash=P[n].id}
+document.getElementById("prev").onclick=function(){go(-1)};document.getElementById("next").onclick=function(){go(1)};
+document.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")go(-1);if(e.key==="ArrowRight")go(1)});
+window.addEventListener("hashchange",show);show();
+})();
+</script>
+<script src="/video-guard.js" defer></script></body></html>

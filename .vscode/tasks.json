@@ -1,0 +1,53 @@
+﻿{
+    "version":  "2.0.0",
+    "tasks":  [
+                  {
+                      "label":  "Start portfolio",
+                      "type":  "process",
+                      "command":  "C:\\Users\\samda\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+                      "args":  [
+                                   "node_modules/vite/bin/vite.js",
+                                   "--host",
+                                   "127.0.0.1",
+                                   "--port",
+                                   "4175",
+                                   "--strictPort",
+                                   "--open"
+                               ],
+                      "options":  {
+                                      "cwd":  "${workspaceFolder}"
+                                  },
+                      "isBackground":  true,
+                      "problemMatcher":  {
+                                             "owner":  "vite",
+                                             "pattern":  {
+                                                             "regexp":  "^$"
+                                                         },
+                                             "background":  {
+                                                                "activeOnStart":  true,
+                                                                "beginsPattern":  ".*",
+                                                                "endsPattern":  ".*Local:.*http://127\\.0\\.0\\.1:4175/.*"
+                                                            }
+                                         },
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "dedicated"
+                                       },
+                      "runOptions":  {
+                                         "runOn":  "folderOpen"
+                                     }
+                  },
+                  {
+                      "label":  "Build portfolio",
+                      "type":  "shell",
+                      "command":  "pnpm build",
+                      "group":  {
+                                    "kind":  "build",
+                                    "isDefault":  true
+                                },
+                      "problemMatcher":  [
+
+                                         ]
+                  }
+              ]
+}

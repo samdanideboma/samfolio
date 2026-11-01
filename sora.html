@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SŌRA, a furniture store prototype by Sam. Browse all 189 screens: home, collections, 32 products with bag, checkout and tracking, plus help and admin pages."><title>SŌRA Prototype — Sam Portfolio</title><link rel="stylesheet" href="/styles/ecommerce.css"><link rel="stylesheet" href="/styles/elevn.css"></head>
+<body><div class="sheet viewer">
+<header class="bar"><a class="logo" href="/" aria-label="Sam Portfolio home">☺</a><nav aria-label="Prototype navigation"><a href="/websites.html">← WEBSITE DESIGN</a><a class="on" href="#">★ SŌRA PROTOTYPE</a></nav><a class="bar-cta" href="/ecommerce.html#contact">♥ CONTACT</a></header>
+
+<section class="v-video" aria-label="SŌRA shopping demo"><div class="vv-head"><span class="label-box">watch the demo</span><h2>SŌRA, <em>shopping walkthrough</em></h2><p>A walkthrough of the furniture store: browsing collections, a product page, bag and checkout.</p></div><figure class="vv-frame"><i class="tape"></i><video controls playsinline preload="metadata" src="/assets/ecommerce/video/sora-shopping-walkthrough.mp4"></video><figcaption>SŌRA · designed in Figma</figcaption></figure></section>
+
+<div class="v-layout">
+<aside class="v-side" aria-label="All pages"><p class="hand-note">pick a page!</p><div id="list"></div></aside>
+<main class="v-main"><div class="v-head"><div><small id="group">MAIN</small><h1 id="title">Home</h1></div><div class="v-ctrl"><button id="prev" type="button" aria-label="Previous page">← PREV</button><span id="count">1 / 189</span><button id="next" type="button" aria-label="Next page">NEXT →</button></div></div>
+<div class="v-steps" id="steps" role="tablist" aria-label="Product steps" hidden></div>
+<div class="v-frame fit"><img id="shot" alt="" width="1280" height="800"></div>
+<p class="v-hint">Use the ← → arrow keys, or pick any page from the list.</p></main>
+</div>
+<footer><a href="/ecommerce.html">← BACK TO E-COMMERCE</a><span>SŌRA · DESIGNED IN FIGMA</span><a href="#top">BACK TO TOP ↑</a></footer>
+</div>
+<script>
+(function(){
+function z(n,l){n=String(n);while(n.length<l)n="0"+n;return n}
+var P=[],groups=[],byId={};
+function add(file,name,group){var p={id:file,name:name,group:group,i:P.length};P.push(p);byId[file]=p;return p}
+var main=[],info=[],admin=[],prods=[];
+main.push(add("001-01-home-start-here","Home","Main"));
+main.push(add("002-02-collection-32-products","Collection (32 products)","Main"));
+[["003-s-ra-guide","Guide"],["004-s-ra-emptybag","Empty bag"],["005-s-ra-search","Search"],["006-s-ra-about","About"],["007-s-ra-materials","Materials"],["008-s-ra-contact","Contact"],["009-s-ra-faq","FAQ"],["010-s-ra-shipping","Shipping"],["011-s-ra-returns","Returns"],["012-s-ra-privacy","Privacy"],["013-s-ra-terms","Terms"]].forEach(function(a){info.push(add(a[0],a[1],"About & help"))});
+[["014-s-ra-account","Account"],["015-s-ra-manager","Manager"],["016-s-ra-inventory","Inventory"],["017-s-ra-support","Support"],["018-s-ra-settings","Settings"],["019-s-ra-paymenterror","Payment error"],["020-s-ra-returnrequested","Return requested"],["021-s-ra-refunded","Refunded"]].forEach(function(a){admin.push(add(a[0],a[1],"Account & admin"))});
+var N=["Nagi","Kumo","Mori","Yura","Sumi","Haven","Dune","Onda","Aki","Reed","Sora","Kiri","Pebble","Enso","Tide","Fold","Kura","Tansu","Noma","Rill","Yume","Still","Asa","Moon","Ishi","Haru","Moku","Neri","Kado","Line","Oku","Hiba"];
+var S=[["detail","Product"],["bag","Bag"],["checkout","Checkout"],["confirmation","Confirmation"],["tracking","Tracking"]];
+N.forEach(function(n,p){var first;S.forEach(function(s,k){var pg=add(z(22+p*5+k,3)+"-"+z(p+1,2)+"-"+n.toLowerCase()+"-"+s[0],n+" · "+s[1],"Products");pg.prod=p;pg.step=k;pg.stepName=s[1];if(k===0)first=pg});prods.push(first)});
+["Lounge chairs","Sofas","Dining chairs","Tables","Sideboards","Beds","Benches","Shelving"].forEach(function(c,k){main.push(add(z(182+k,3)+"-collection-"+c.toLowerCase().replace(/ /g,"-"),"Collection · "+c,"Main"))});
+var list=document.getElementById("list");
+[["Main",main],["About & help",info],["Account & admin",admin],["Products (32)",prods]].forEach(function(g){var h=document.createElement("h2");h.textContent=g[0];list.appendChild(h);var ul=document.createElement("ul");
+g[1].forEach(function(p){var li=document.createElement("li"),a=document.createElement("a");a.href="#"+p.id;a.textContent=p.prod!==undefined?N[p.prod]:p.name;a.dataset.i=p.i;a.dataset.prod=p.prod===undefined?"":p.prod;li.appendChild(a);ul.appendChild(li)});list.appendChild(ul)});
+var shot=document.getElementById("shot"),steps=document.getElementById("steps"),links=list.querySelectorAll("a"),cur=0;
+function idx(){var p=byId[location.hash.slice(1)];return p?p.i:0}
+function show(){cur=idx();var p=P[cur];
+shot.src="/assets/ecommerce/sora/"+p.id+".jpg";shot.alt="SŌRA "+p.name+" page prototype";
+document.getElementById("title").textContent=p.name;document.getElementById("group").textContent=p.group.toUpperCase();
+document.getElementById("count").textContent=(cur+1)+" / "+P.length;document.title=p.name+" — SŌRA Prototype";
+links.forEach(function(a){var on=a.dataset.prod!==""?(p.prod!==undefined&&+a.dataset.prod===p.prod):+a.dataset.i===cur;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+steps.innerHTML="";steps.hidden=p.prod===undefined;
+if(p.prod!==undefined)S.forEach(function(s,k){var t=P[cur-p.step+k],a=document.createElement("a");a.href="#"+t.id;a.textContent=(k+1)+". "+s[1].toUpperCase();if(k===p.step){a.className="on";a.setAttribute("aria-current","page")}steps.appendChild(a)});
+window.scrollTo(0,0)}
+function go(d){var n=(cur+d+P.length)%P.length;location.hash=P[n].id}
+document.getElementById("prev").onclick=function(){go(-1)};document.getElementById("next").onclick=function(){go(1)};
+document.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")go(-1);if(e.key==="ArrowRight")go(1)});
+window.addEventListener("hashchange",show);show();
+})();
+</script>
+<script src="/video-guard.js" defer></script></body></html>

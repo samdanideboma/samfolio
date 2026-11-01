@@ -1,0 +1,33 @@
+.v-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;padding:28px 28px 60px;align-items:start}
+.v-side{position:sticky;top:50px;max-height:calc(100vh - 70px);overflow:auto;padding-right:6px}.v-side .hand-note{margin:0 0 10px}
+.v-side h2{margin:18px 0 6px;font:700 8px/1 'JetBrains Mono',monospace;letter-spacing:1.2px;color:#777;text-transform:uppercase}
+.v-side ul{list-style:none;margin:0;padding:0}.v-side a{display:block;padding:7px 10px;font:400 18px/1.1 Gaegu,cursive;border-left:3px solid transparent}
+.v-side a:hover{background:#0000000d}.v-side a.on{background:var(--yellow);border-left-color:var(--ink);font-weight:700}
+.v-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.v-head small{font:700 8px/1 'JetBrains Mono',monospace;letter-spacing:1px;color:var(--orange)}.v-head h1{margin:8px 0 0;font-size:clamp(28px,4vw,44px);line-height:1;letter-spacing:-1.6px;font-weight:800}
+.v-ctrl{display:flex;align-items:center;gap:12px;font:700 9px/1 'JetBrains Mono',monospace;letter-spacing:.6px}
+.v-ctrl button{padding:11px 14px;border:1.5px solid var(--ink);background:#fff;font:inherit;cursor:pointer;transition:background .2s,color .2s}.v-ctrl button:hover{background:var(--ink);color:#fff}
+.v-frame{border:2px solid var(--ink);background:#fff;box-shadow:6px 6px 0 var(--ink);max-height:78vh;overflow:auto}.v-frame img{display:block;width:100%;height:auto}
+.v-hint{margin:16px 0 0;font:400 18px/1.2 Gaegu,cursive;color:#555}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+@media(max-width:800px){.v-layout{grid-template-columns:1fr;padding:20px 14px 40px}.v-side{position:static;max-height:none;overflow:visible}.v-side ul{display:flex;flex-wrap:wrap;gap:4px}.v-side a{border:1.5px solid var(--ink);padding:5px 9px;font-size:16px}.v-side a.on{border-left-color:var(--ink)}.v-frame{max-height:70vh}}
+.v-frame.fit{max-height:none;overflow:hidden}
+.v-steps{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}.v-steps[hidden]{display:none}
+.v-steps a{padding:9px 13px;border:1.5px solid var(--ink);background:#fff;font:700 9px/1 'JetBrains Mono',monospace;letter-spacing:.6px}.v-steps a:hover{background:#0000000d}.v-steps a.on{background:var(--yellow)}
+@media(max-width:800px){.v-side ul{max-height:none}}
+.v-video{max-width:1000px;margin:0 auto;padding:36px 36px 8px;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:34px;align-items:center}
+.vv-head h2{margin:16px 0 10px;font-size:clamp(26px,3.4vw,40px);line-height:1.05;letter-spacing:-1.5px;font-weight:800}.vv-head h2 em{font-style:normal;color:var(--orange)}
+.vv-head p{margin:0;font-size:12px;line-height:1.7;opacity:.8}
+.vv-frame{position:relative;margin:0;padding:10px 10px 8px;background:#fff;box-shadow:0 10px 24px #0004;transform:rotate(.6deg)}
+.vv-frame video{display:block;width:100%;aspect-ratio:16/9;background:#111;object-fit:contain}
+.vv-frame figcaption{padding:8px 2px 0;font:700 8px/1 'JetBrains Mono',monospace;letter-spacing:1px;opacity:.7}
+@media(max-width:800px){.v-video{grid-template-columns:1fr;gap:22px;padding:24px 14px 4px}.vv-frame{transform:none}}
+.v-ctrl{gap:10px}
+.v-ctrl button{min-width:92px;padding:14px 18px;border-width:2px;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .2s,color .2s}
+.v-ctrl button:hover{background:var(--yellow);color:var(--ink);transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.v-ctrl button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.v-ctrl button:focus-visible,.v-side a:focus-visible,.bar a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.v-ctrl button:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--ink)}
+.v-ctrl #count{min-width:64px;padding:9px 12px;text-align:center;background:var(--ink);color:#fff}
+.v-side a{transition:background .15s,padding-left .15s}.v-side a:hover{padding-left:14px}
+@media(max-width:800px){.v-ctrl button{min-width:80px;padding:12px 14px}.v-side a:hover{padding-left:9px}}

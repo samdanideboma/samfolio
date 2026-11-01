@@ -1,0 +1,58 @@
+{
+  "higgsfield": {
+    "file": "higgsfield.png",
+    "source": "https://higgsfield.ai/apple-icon.png"
+  },
+  "google-flow": {
+    "file": "google-flow.png",
+    "source": "https://www.gstatic.com/aitestkitchen/website/flow/favicon/flow_favicon_w.png"
+  },
+  "kling": {
+    "file": "kling.png",
+    "source": "https://s16-kling.klingai.com/kos/s101/nlav112918/kling-homepage-aio/logo-58x58.png"
+  },
+  "heygen": {
+    "file": "heygen.ico",
+    "source": "https://www.heygen.com/favicon.ico?favicon.2m321y0geyyfh.ico"
+  },
+  "magnific": {
+    "file": "magnific.png",
+    "source": "https://www.google.com/s2/favicons?domain=magnific.ai&sz=128"
+  },
+  "flora": {
+    "file": "flora.png",
+    "source": "https://try.flora.ai/apple-icon.png"
+  },
+  "openart": {
+    "file": "openart.png",
+    "source": "https://openart.ai/pageforge-assets/favicon/apple-touch-icon.png"
+  },
+  "artlist": {
+    "file": "artlist.png",
+    "source": "https://www.google.com/s2/favicons?domain=artlist.io&sz=128"
+  },
+  "elevenlabs": {
+    "file": "elevenlabs.png",
+    "source": "https://elevenlabs.io/apple-icon.png?6592732ab34b1d42"
+  },
+  "suno": {
+    "file": "suno.png",
+    "source": "https://cdn-o.suno.com/apple-touch-icon.png"
+  },
+  "sora": {
+    "file": "sora.png",
+    "source": "https://www.google.com/s2/favicons?domain=sora.com&sz=128"
+  },
+  "grok": {
+    "file": "grok.png",
+    "source": "https://grok.com/images/android-chrome-512x512.png"
+  },
+  "chatgpt": {
+    "file": "chatgpt.png",
+    "source": "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=128"
+  },
+  "claude": {
+    "file": "claude.png",
+    "source": "https://www.google.com/s2/favicons?domain=claude.ai&sz=128"
+  }
+}
